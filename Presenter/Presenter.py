@@ -42,5 +42,5 @@ class Presenter:
     def save_data(self, file_name: str):
         self.service.save_data(file_name)
 
-    def load_data(self, title: str):
-        self.service.load_data(title)
+    def load_data(self, file_name: str):
+        self.service.load_data(file_name)

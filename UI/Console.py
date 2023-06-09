@@ -92,3 +92,8 @@ class Console(View):
         print("Введите название и расширение файла: ")
         file_name = input()
         self.presenter.save_data(file_name)
+
+    def load_data(self):
+        print("Введите название и расширение файла: ")
+        file_name = input()
+        self.presenter.load_data(file_name)

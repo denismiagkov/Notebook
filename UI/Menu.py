@@ -1,6 +1,7 @@
 from UI.Commands.AddNote import AddNote
 from UI.Commands.EditNote import EditNote
 from UI.Commands.Finish import Finish
+from UI.Commands.LoadData import LoadData
 from UI.Commands.ReadNote import ReadNote
 from UI.Commands.RemoveNote import RemoveNote
 from UI.Commands.SaveData import SaveData
@@ -19,7 +20,7 @@ class Menu:
         self.list.append(EditNote(console))
         self.list.append(RemoveNote(console))
         self.list.append(SaveData(console))
-        #self.list.append(LoadFile(console))
+        self.list.append(LoadData(console))
         self.list.append(Finish(console))
 
     def print(self):

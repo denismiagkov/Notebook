@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 from typing import List
 from Note.Note import Note
 import json
@@ -65,3 +65,22 @@ class Notebook:
             })
         with open(file_name, 'w') as outfile:
             json.dump(data, outfile, default=str)
+
+    def load_data(self, file_name: str):
+        with open(file_name) as json_file:
+            data = json.load(json_file)
+            for p in data['notes']:
+                date_time = datetime.strptime(p['datetime'], '%Y-%m-%dT%H:%M:%S.%f')
+                note = Note(p['id'], date_time, p['title'], p['body'])
+                self.notebook.append(note)
+
+
+
+
+                #print('id: ' + str(p['id']))
+                #print('datetime: ' + p['datetime'])
+                #print('title: ' + p['title'])
+                #print('body: ' + p['body'])
+                #print('')
+
+

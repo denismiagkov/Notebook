@@ -11,7 +11,6 @@ class Service:
         self.id = 0
         self.date = None
         self.notebook = notebook
-        #self.copy = InOutCsv()
 
     def add_note(self, title: str, body: str):
         date = datetime.now()
@@ -42,5 +41,5 @@ class Service:
     def save_data(self, file_name: str):
         self.notebook.save_data(file_name)
 
-    def load_data(self, title: str):
-        self.copy.load_data(title)
+    def load_data(self, file_name: str):
+        self.notebook.load_data(file_name)
