@@ -58,7 +58,6 @@ class Console(View):
         body = self.scanner()
         self.presenter.add_note(title, body)
 
-
     def remove_note(self):
         print("Введите название заметки: ")
         title = input().upper()

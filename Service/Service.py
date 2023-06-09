@@ -8,11 +8,13 @@ from Notebook import Notebook
 
 class Service:
     def __init__(self, notebook: Notebook):
-        self.id = 0
-        self.date = None
+        #self.id = 0
+        #self.date = None
         self.notebook = notebook
 
     def add_note(self, title: str, body: str):
+        if not hasattr(self, 'id'):
+            self.id = 1
         date = datetime.now()
         self.notebook.add_record(Note(self.id, date, title.upper(), body))
         self.id += 1

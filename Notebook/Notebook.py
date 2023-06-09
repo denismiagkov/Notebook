@@ -4,9 +4,6 @@ from Note.Note import Note
 import json
 
 
-# from Notebook.NoteIterator import NoteIterator
-
-
 class Notebook:
     def __init__(self, notebook=None):
         if notebook is None:
@@ -16,17 +13,11 @@ class Notebook:
     def get_notebook(self):
         return self.notebook
 
-    # def __init__(self, notebook: List[Note] = []):
-    #     self.notebook = notebook
-
     def __str__(self):
         res = ""
         for n in self.notebook:
             res += str(n)
         return res
-
-    # def __iter__(self):
-    #    return NoteIterator(self.notebook)
 
     def add_record(self, n: Note):
         self.notebook.append(n)
@@ -50,7 +41,7 @@ class Notebook:
         temp = []
         for n in self.notebook:
             if local_date == n.get_date().date():
-                temp.append(n)
+                temp.append(n.get_title())
         return temp
 
     def save_data(self, file_name: str):
@@ -73,14 +64,4 @@ class Notebook:
                 date_time = datetime.strptime(p['datetime'], '%Y-%m-%dT%H:%M:%S.%f')
                 note = Note(p['id'], date_time, p['title'], p['body'])
                 self.notebook.append(note)
-
-
-
-
-                #print('id: ' + str(p['id']))
-                #print('datetime: ' + p['datetime'])
-                #print('title: ' + p['title'])
-                #print('body: ' + p['body'])
-                #print('')
-
 
