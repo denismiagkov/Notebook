@@ -39,8 +39,8 @@ class Presenter:
     def set_date(self, title: str):
         self.service.set_date(title)
 
-    def save_data(self, title: str):
-        self.service.save_data(title)
+    def save_data(self, file_name: str):
+        self.service.save_data(file_name)
 
     def load_data(self, title: str):
         self.service.load_data(title)

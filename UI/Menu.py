@@ -3,7 +3,7 @@ from UI.Commands.EditNote import EditNote
 from UI.Commands.Finish import Finish
 from UI.Commands.ReadNote import ReadNote
 from UI.Commands.RemoveNote import RemoveNote
-from UI.Commands.SaveChanges import SaveChanges
+from UI.Commands.SaveData import SaveData
 from UI.Commands.ShowList import ShowList
 from UI.Commands.ShowNotesByDate import ShowNotesByDate
 from UI.View import View
@@ -18,7 +18,7 @@ class Menu:
         self.list.append(AddNote(console))
         self.list.append(EditNote(console))
         self.list.append(RemoveNote(console))
-        self.list.append(SaveChanges(console))
+        self.list.append(SaveData(console))
         #self.list.append(LoadFile(console))
         self.list.append(Finish(console))
 

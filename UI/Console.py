@@ -36,16 +36,6 @@ class Console(View):
         print("Работа программы завершена")
         self.work = False
 
-    def save_data(self):
-        print("Введите название файла")
-        title = self.scanner()
-        self.presenter.save_data(title)
-
-    def load_file(self):
-        print("Введите название файла")
-        title = self.scanner()
-        self.presenter.load_data(title)
-
     def get_presenter(self):
         return self.presenter
 
@@ -97,3 +87,8 @@ class Console(View):
             print(self.presenter.get_note(title))
         else:
             print("Заметка с таким названием отсутствует!")
+
+    def save_data(self):
+        print("Введите название и расширение файла: ")
+        file_name = input()
+        self.presenter.save_data(file_name)

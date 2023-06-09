@@ -2,7 +2,6 @@
 from typing import List
 from datetime import datetime
 
-from InOut.InOutCsv import InOutCsv
 from Note.Note import Note
 from Notebook import Notebook
 
@@ -12,7 +11,7 @@ class Service:
         self.id = 0
         self.date = None
         self.notebook = notebook
-        self.copy = InOutCsv()
+        #self.copy = InOutCsv()
 
     def add_note(self, title: str, body: str):
         date = datetime.now()
@@ -40,8 +39,8 @@ class Service:
     def show_notes_by_date(self, datetime: datetime) -> List[Note]:
         return self.notebook.show_notes_by_date(datetime)
 
-    def save_data(self, title: str):
-        self.copy.save_data(self.notebook, title)
+    def save_data(self, file_name: str):
+        self.notebook.save_data(file_name)
 
     def load_data(self, title: str):
         self.copy.load_data(title)

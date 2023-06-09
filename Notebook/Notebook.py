@@ -1,7 +1,10 @@
 from datetime import date
 from typing import List
 from Note.Note import Note
-#from Notebook.NoteIterator import NoteIterator
+import json
+
+
+# from Notebook.NoteIterator import NoteIterator
 
 
 class Notebook:
@@ -13,8 +16,8 @@ class Notebook:
     def get_notebook(self):
         return self.notebook
 
-   # def __init__(self, notebook: List[Note] = []):
-   #     self.notebook = notebook
+    # def __init__(self, notebook: List[Note] = []):
+    #     self.notebook = notebook
 
     def __str__(self):
         res = ""
@@ -22,7 +25,7 @@ class Notebook:
             res += str(n)
         return res
 
-    #def __iter__(self):
+    # def __iter__(self):
     #    return NoteIterator(self.notebook)
 
     def add_record(self, n: Note):
@@ -49,3 +52,16 @@ class Notebook:
             if local_date == n.get_date().date():
                 temp.append(n)
         return temp
+
+    def save_data(self, file_name: str):
+        data = {}
+        data['notes'] = []
+        for n in self.notebook:
+            data['notes'].append({
+                'id': n.get_id(),
+                'datetime': n.get_date().isoformat(),
+                'title': n.get_title(),
+                'body': n.get_body()
+            })
+        with open(file_name, 'w') as outfile:
+            json.dump(data, outfile, default=str)

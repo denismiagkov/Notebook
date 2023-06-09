@@ -7,7 +7,7 @@ class ShowList(Command):
         super().__init__(console)
 
     def get_description(self):
-        return " Посмотреть список заметок"
+        return "Посмотреть список заметок"
 
     def execute(self):
         self.get_console().show_list()
