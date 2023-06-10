@@ -7,7 +7,7 @@ class SaveData(Command):
         super().__init__(console)
 
     def get_description(self):
-        return "Сохранить изменения"
+        return "Сохранить изменения в файл"
 
     def execute(self):
         self.get_console().save_data()
