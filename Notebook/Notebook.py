@@ -59,9 +59,12 @@ class Notebook:
 
     def load_data(self, file_name: str):
         with open(file_name) as json_file:
+            max_id = 0
             data = json.load(json_file)
             for p in data['notes']:
                 date_time = datetime.strptime(p['datetime'], '%Y-%m-%dT%H:%M:%S.%f')
                 note = Note(p['id'], date_time, p['title'], p['body'])
                 self.notebook.append(note)
-
+                if p['id'] > max_id:
+                    max_id = p['id']
+            return max_id + 1

@@ -1,4 +1,3 @@
-
 from typing import List
 from datetime import datetime
 
@@ -8,8 +7,8 @@ from Notebook import Notebook
 
 class Service:
     def __init__(self, notebook: Notebook):
-        #self.id = 0
-        #self.date = None
+        # self.id = 0
+        # self.date = None
         self.notebook = notebook
 
     def add_note(self, title: str, body: str):
@@ -44,4 +43,4 @@ class Service:
         self.notebook.save_data(file_name)
 
     def load_data(self, file_name: str):
-        self.notebook.load_data(file_name)
+        self.id = self.notebook.load_data(file_name)
